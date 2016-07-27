@@ -1,6 +1,6 @@
 # TvMaze
 
-Thin Ruby wrapper around tvmaze.com API.
+Thin Ruby wrapper around tvmaze.com API. http://www.tvmaze.com/api
 
 ## Installation
 
@@ -19,7 +19,15 @@ Or install it yourself as:
     $ gem install tv_maze
 
 ## Usage
+```ruby
+#Get basic detail of a show
 
+> show = TvMaze::Show.find 1
+=> {"moji"=>"❤", "unicode"=>"2764", "unicode_alternates"=>["2764-FE0F"], "name"=>"heart", "shortname"=>":heart:", "category"=>"symbols", "aliases"=>[], "aliases_ascii"=>["<3"], "keywords"=>["like", "love", "red", "pink", "black", "heart", "love", "passion", "romance", "intense", "desire", "death", "evil", "cold", "valentines"], "description"=>"heavy black heart"}
+
+
+## Search
+```
 
 ## Development
 
