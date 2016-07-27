@@ -1,8 +1,11 @@
-# TvMaze
+## Information
 
-Thin Ruby wrapper around tvmaze.com API. http://www.tvmaze.com/api
+### tv_maze [![Code Climate](https://codeclimate.com/github/naveed-ahmad/tv_maze/badges/gpa.svg)](https://codeclimate.com/github/naveed-ahmad/tv_maze) [![Gem Version](https://badge.fury.io/rb/tv_maze.svg)](https://badge.fury.io/rb/tv_maze)
 
-## Installation
+A Ruby wrapper for the [Tv Maze](www.tvmaze.com/api).
+Provides a simple, easy to use interface for the TvMaze API.
+
+## Getting started
 
 Add this line to your application's Gemfile:
 
@@ -11,22 +14,51 @@ gem 'tv_maze'
 ```
 
 And then execute:
-
-    $ bundle
+```bash
+$ bundle install
+```
 
 Or install it yourself as:
-
-    $ gem install tv_maze
+```bash
+$ gem install tv_maze
+```
 
 ## Usage
+
 ```ruby
-#Get basic detail of a show
+TvMaze::Show.find(show_id)
+TvMaze::Show.cast(show_id)
+TvMaze::Show.alternative_names(show_id)
+TvMaze::Show.seasons(show_id)
+TvMaze::Show.find_by_imdb_id(imdb_id)
+TvMaze::Show.find_by_tvrage_id(tvrage_id)
+TvMaze::Show.find_by_tvdb_id(tvdb_id)
+TvMaze::Show.all(page)
+TvMaze::Show.search(query)
+```
 
-> show = TvMaze::Show.find 1
-=> {"moji"=>"❤", "unicode"=>"2764", "unicode_alternates"=>["2764-FE0F"], "name"=>"heart", "shortname"=>":heart:", "category"=>"symbols", "aliases"=>[], "aliases_ascii"=>["<3"], "keywords"=>["like", "love", "red", "pink", "black", "heart", "love", "passion", "romance", "intense", "desire", "death", "evil", "cold", "valentines"], "description"=>"heavy black heart"}
+### Examples
 
+## Show detail
+```ruby
+> show = TvMaze::Show.find(1)
+=> #<TvMaze::Show id=1, name="Under the Dome", type="Scripted", ...
+> show.name 
+=> "Under the Dome"
+> show.type 
+=> "Scripted"
+> show.network
+=> #<TvMaze::Network id=2, name="CBS", country=#<TvMaze::Country name="United States", code="US", timezone="America/New_York">>
+> show.external_ids
+=> #<TvMaze::ExternalIds tvrage=25988, thetvdb=264492, imdb="tt1553656">
+> show.airing_schedule
+=> #<TvMaze::AiringSchedule time="22:00", days=["Thursday"]>
+```
 
-## Search
+## Cast details
+```ruby
+> show = TvMaze::Show.cast(1)
+=>  [#<TvMaze::Cast person=#<TvMaze::Person id=9, name="Dean Norris", image=#<TvMaze::Image ...
 ```
 
 ## Development
