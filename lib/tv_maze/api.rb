@@ -13,8 +13,8 @@ module TvMaze
     def url_for(action, params={})
       url = URI.join(base_url, action)
 
-      if params['embed']
-        params['embed[]'] = params.delete('embed')
+      if params[:embed]
+        params['embed[]'] = params.delete(:embed)
       end
 
       url.query = URI.encode_www_form(params) if params

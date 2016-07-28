@@ -22,6 +22,7 @@ module TvMaze::ShowRepresenter
   nested :_embedded do
    collection :cast, class: TvMaze::Cast, extend: TvMaze::CastRepresenter
    collection :episodes, class: TvMaze::Episode, extend: TvMaze::EpisodeRepresenter
+   property :next_episode, as: :nextepisode, extend: TvMaze::EpisodeRepresenter, class: TvMaze::Episode
   end
 
   #end
