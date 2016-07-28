@@ -60,6 +60,11 @@ TvMaze::Show.search(query)
 > show = TvMaze::Show.cast(1)
 =>  [#<TvMaze::Cast person=#<TvMaze::Person id=9, name="Dean Norris", image=#<TvMaze::Image ...
 ```
+## Embeding 
+```ruby
+# fetc cast, episoes and next episodes data as well
+> TvMaze::Show.find(17153, embed: ['episodes', 'cast', 'nextepisode'])
+```
 
 ## Development
 
