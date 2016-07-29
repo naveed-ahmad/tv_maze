@@ -4,4 +4,5 @@ module TvMaze::PersonRepresenter
   property :id
   property :name
   property :image, extend: TvMaze::ImageRepresenter, class: TvMaze::Image
+  property :url
 end
