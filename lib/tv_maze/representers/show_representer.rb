@@ -9,7 +9,7 @@ module TvMaze::ShowRepresenter
   property :runtime
   property :premiered
   property :rating
-  property :web_channel, as: :webChannel
+  property :web_channel, as: :webChannel, extend: TvMaze::NetworkRepresenter, class: TvMaze::Network
   property :summary
   property :genres
   property :updated
